@@ -14,6 +14,6 @@ class SortableArticleUniqueByTable extends Doctrine_Table
      */
     public static function getInstance()
     {
-        return Doctrine::getTable('SortableArticleUniqueBy');
+        return Doctrine_Core::getTable('SortableArticleUniqueBy');
     }
 }

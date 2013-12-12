@@ -89,15 +89,15 @@ Clear your cache
 
   * **sort** - accepts the array created by the symfony/prototype sortableElement tag
 
-        Doctrine::getTable('MyModel')->sort($order);
+        Doctrine_Core::getTable('MyModel')->sort($order);
 
   * **findAllSorted** - Accepts sort order (asc, desc)
 
-        Doctrine::getTable('Model')->findAllSorted('asc');
+        Doctrine_Core::getTable('Model')->findAllSorted('asc');
 
   * **findAllSortedWithParent** - accepts the parent column name, the value, and sort order (asc, desc)
 
-        Doctrine::getTable('MyModel')->findAllSortedWithParent($fk_value, $fk_name, 'asc');
+        Doctrine_Core::getTable('MyModel')->findAllSortedWithParent($fk_value, $fk_name, 'asc');
 
 
 #Example Usage With Admin Generator
@@ -116,7 +116,7 @@ In your module, edit `actions/actions.class.php`, Add the following actions:
   
     public function executePromote()
     {
-      $object=Doctrine::getTable('MyModel')->findOneById($this->getRequestParameter('id'));
+      $object=Doctrine_Core::getTable('MyModel')->findOneById($this->getRequestParameter('id'));
 
 
       $object->promote();
@@ -125,7 +125,7 @@ In your module, edit `actions/actions.class.php`, Add the following actions:
 
     public function executeDemote()
     {
-      $object=Doctrine::getTable('MyModel')->findOneById($this->getRequestParameter('id'));
+      $object=Doctrine_Core::getTable('MyModel')->findOneById($this->getRequestParameter('id'));
 
       $object->demote();
       $this->redirect("@moduleIndexRoute");
