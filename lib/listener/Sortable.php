@@ -101,7 +101,7 @@ class Doctrine_Template_Listener_Sortable extends Doctrine_Record_Listener
           $query->andWhere($identifier . ' = ?', $object->get($identifier));
       }
 
-      $position = $query->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+      $position = $query->fetchOne(array(), Doctrine_Core::HYDRATE_ARRAY);
       $object->set($fieldName, $position[$fieldName], false);
   }
 
@@ -120,10 +120,10 @@ class Doctrine_Template_Listener_Sortable extends Doctrine_Record_Listener
 
     // Quick fix forSoftDelete behavior
     if ($object->getTable()->hasTemplate('SoftDelete'))
-    { 
-        $object->setPosition(null); 
-        $object->save(); 
-    } 
+    {
+        $object->setPosition(null);
+        $object->save();
+    }
 
     // Create query to update other positions
     $q = $object->getTable()->createQuery()
